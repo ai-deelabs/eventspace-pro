@@ -228,7 +228,6 @@
   .service-arrow i { width: 22px; height: 22px; }
 
   /* ----- GALLERY (horizontal scroll showcase) ----- */
-  .gallery-wrap { padding: 110px 0 90px; }
   .gallery-track {
     display: flex; gap: 28px;
     overflow-x: auto; overflow-y: hidden;
@@ -482,6 +481,16 @@
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s ease, transform .9s ease; }
   .reveal.in { opacity: 1; transform: translateY(0); }
 
+  /* ----- LUCIDE ICON SIZING (lucide replaces <i> with <svg>) ----- */
+  .brand-mark svg { width: 18px; height: 18px; }
+  .nav-cta svg, .btn-primary svg, .btn-ghost svg { width: 16px; height: 16px; }
+  .burger svg, .gallery-nav button svg { width: 18px; height: 18px; }
+  .service-arrow svg, .process-step .step-icon svg { width: 22px; height: 22px; }
+  .pillar-item svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; margin-top: 3px; }
+  .faq-q svg { width: 20px; height: 20px; color: var(--accent); flex-shrink: 0; transition: transform .3s; }
+  .faq-item.open .faq-q svg { transform: rotate(45deg); }
+  .footer-social svg { width: 15px; height: 15px; }
+
   /* ----- RESPONSIVE ----- */
   @media (max-width: 1024px) {
     .hero-grid { grid-template-columns: 1fr; gap: 50px; }
@@ -500,6 +509,15 @@
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
     .quote-section::before { font-size: 320px; }
     .nav-links { display: none; }
+    .nav.open .nav-links {
+      display: flex; flex-direction: column;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(14, 13, 11, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 22px 32px 28px; gap: 20px;
+    }
+    .nav.open .nav-links a { font-size: 16px; color: var(--ink); }
     .burger { display: grid; }
     .gallery-card { flex: 0 0 320px; }
   }
@@ -517,6 +535,12 @@
     .nav-cta { display: none; }
     .lang-switch { font-size: 10px; }
     .lang-switch button { padding: 5px 9px; }
+    .brand { font-size: 17px; gap: 10px; }
+    .brand-mark { width: 32px; height: 32px; }
+    .brand small { font-size: 8px; letter-spacing: 0.15em; }
+  }
+  @media (max-width: 380px) {
+    .brand small { display: none; }
   }
 </style>
 </head>
@@ -1160,6 +1184,23 @@
     if (window.scrollY > 24) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
   });
+
+  // Mobile menu toggle
+  const burger = document.getElementById('burger');
+  if (burger) {
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nav.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => nav.classList.remove('open'));
+    });
+    document.addEventListener('click', (e) => {
+      if (nav.classList.contains('open') && !nav.contains(e.target)) {
+        nav.classList.remove('open');
+      }
+    });
+  }
 
   // FAQ toggle
   document.querySelectorAll('.faq-item').forEach(item => {
