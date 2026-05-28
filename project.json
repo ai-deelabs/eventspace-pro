@@ -1,0 +1,30 @@
+{
+  "slug": "eventspace-pro",
+  "brand_dna": "EventSpace Pro is an event booth rental and production service offering exhibition booths, food booths, and activity booths for exhibitions, concerts, and festivals. The brand features a modern, professional design that conveys trustworthiness and reliability. The visual approach emphasizes quality service delivery, expertise in event production, and the versatility of their booth rental solutions for various event types.",
+  "variant_count": 2,
+  "client_id": null,
+  "tags": [
+    "event",
+    "booth",
+    "rental",
+    "exhibition",
+    "modern",
+    "professional"
+  ],
+  "generated_at": "2026-05-28T16:38:06Z",
+  "prompt_template": "variant.md",
+  "actions": [
+    {
+      "type": "generate",
+      "at": "2026-05-28T16:43:08Z",
+      "variants": {
+        "v1": {
+          "size_bytes": 64072
+        },
+        "v2": {
+          "size_bytes": 44105
+        }
+      }
+    }
+  ]
+}
