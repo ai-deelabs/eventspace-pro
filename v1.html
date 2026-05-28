@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>EventSpace Pro — Booth Rental & Event Production</title>
+<title data-th-title="EventSpace Pro — บูธอีเวนต์และโปรดักชันงานครบวงจร" data-en-title="EventSpace Pro — Booth Rental & Event Production">EventSpace Pro — บูธอีเวนต์และโปรดักชันงานครบวงจร</title>
 <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -132,6 +132,40 @@
     transition: width 0.3s ease;
   }
   .nav-links a:hover::after { width: 100%; }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .lang-toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+  }
+  .lang-toggle button {
+    background: none;
+    border: none;
+    padding: 6px 12px;
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    cursor: pointer;
+    border-radius: 100px;
+    transition: all 0.2s ease;
+    line-height: 1;
+  }
+  .lang-toggle button.active {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .lang-toggle button:not(.active):hover { color: var(--ink); }
 
   .nav-cta {
     display: inline-flex;
@@ -1318,11 +1352,55 @@
     .step-arrow { display: none; }
     .price-card.featured { transform: none; }
     .price-card.featured:hover { transform: translateY(-4px); }
+    .nav-right { gap: 10px; }
+    .lang-toggle button { padding: 5px 10px; font-size: 10px; }
   }
 
   /* Reveal */
   .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16,1,0.3,1); }
   .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ============ LANGUAGE TOGGLE VISIBILITY ============ */
+  html[lang="th"] .t-en { display: none !important; }
+  html[lang="en"] .t-th { display: none !important; }
+
+  /* ============ THAI FONT OVERRIDES ============ */
+  html[lang="th"] body,
+  html[lang="th"] input,
+  html[lang="th"] select,
+  html[lang="th"] button,
+  html[lang="th"] textarea {
+    font-family: 'Noto Sans Thai', 'Sukhumvit Set', 'Inter', -apple-system, sans-serif;
+  }
+  html[lang="th"] .serif,
+  html[lang="th"] .logo-text .name,
+  html[lang="th"] .hero h1,
+  html[lang="th"] .hero-meta-item .num,
+  html[lang="th"] .hero-badge .rating,
+  html[lang="th"] .trust-logo,
+  html[lang="th"] .section-title,
+  html[lang="th"] .service-card h3,
+  html[lang="th"] .service-num,
+  html[lang="th"] .approach-card-q,
+  html[lang="th"] .step-num,
+  html[lang="th"] .step h4,
+  html[lang="th"] .showcase-caption h5,
+  html[lang="th"] .about-stat .big,
+  html[lang="th"] .pillar h6,
+  html[lang="th"] .voice-quote,
+  html[lang="th"] .voice p,
+  html[lang="th"] .price-card h4,
+  html[lang="th"] .price-amount .num,
+  html[lang="th"] .faq-q,
+  html[lang="th"] .faq-contact .v,
+  html[lang="th"] .cta-card h2,
+  html[lang="th"] .cta-form-title {
+    font-family: 'Noto Serif Thai', 'Fraunces', Georgia, serif;
+  }
+  /* Keep Inter for the Trust logo that overrides to Inter */
+  html[lang="th"] .trust-logo:nth-child(5) {
+    font-family: 'Noto Sans Thai', 'Inter', sans-serif;
+  }
 </style>
 </head>
 <body>
@@ -1330,14 +1408,14 @@
   <!-- TICKER -->
   <div class="ticker">
     <div class="ticker-track">
-      <span class="ticker-item"><i data-lucide="sparkles"></i>Premium Booth Rentals Since 2009</span>
-      <span class="ticker-item"><i data-lucide="map-pin"></i>Serving 12 Cities Nationwide</span>
-      <span class="ticker-item"><i data-lucide="award"></i>Award-Winning Event Production Team</span>
-      <span class="ticker-item"><i data-lucide="calendar-check"></i>1,200+ Successful Events Delivered</span>
-      <span class="ticker-item"><i data-lucide="sparkles"></i>Premium Booth Rentals Since 2009</span>
-      <span class="ticker-item"><i data-lucide="map-pin"></i>Serving 12 Cities Nationwide</span>
-      <span class="ticker-item"><i data-lucide="award"></i>Award-Winning Event Production Team</span>
-      <span class="ticker-item"><i data-lucide="calendar-check"></i>1,200+ Successful Events Delivered</span>
+      <span class="ticker-item"><i data-lucide="sparkles"></i><span class="t-th">บริการเช่าบูธพรีเมียมตั้งแต่ปี 2009</span><span class="t-en">Premium Booth Rentals Since 2009</span></span>
+      <span class="ticker-item"><i data-lucide="map-pin"></i><span class="t-th">ให้บริการครอบคลุม 12 เมืองทั่วประเทศ</span><span class="t-en">Serving 12 Cities Nationwide</span></span>
+      <span class="ticker-item"><i data-lucide="award"></i><span class="t-th">ทีมโปรดักชันรางวัลคุณภาพระดับมืออาชีพ</span><span class="t-en">Award-Winning Event Production Team</span></span>
+      <span class="ticker-item"><i data-lucide="calendar-check"></i><span class="t-th">ส่งมอบอีเวนต์สำเร็จกว่า 1,200 งาน</span><span class="t-en">1,200+ Successful Events Delivered</span></span>
+      <span class="ticker-item"><i data-lucide="sparkles"></i><span class="t-th">บริการเช่าบูธพรีเมียมตั้งแต่ปี 2009</span><span class="t-en">Premium Booth Rentals Since 2009</span></span>
+      <span class="ticker-item"><i data-lucide="map-pin"></i><span class="t-th">ให้บริการครอบคลุม 12 เมืองทั่วประเทศ</span><span class="t-en">Serving 12 Cities Nationwide</span></span>
+      <span class="ticker-item"><i data-lucide="award"></i><span class="t-th">ทีมโปรดักชันรางวัลคุณภาพระดับมืออาชีพ</span><span class="t-en">Award-Winning Event Production Team</span></span>
+      <span class="ticker-item"><i data-lucide="calendar-check"></i><span class="t-th">ส่งมอบอีเวนต์สำเร็จกว่า 1,200 งาน</span><span class="t-en">1,200+ Successful Events Delivered</span></span>
     </div>
   </div>
 
@@ -1348,17 +1426,23 @@
         <div class="logo-mark"><i data-lucide="layout-grid"></i></div>
         <div class="logo-text">
           <span class="name">EventSpace Pro</span>
-          <span class="tag">Booth & Production</span>
+          <span class="tag"><span class="t-th">บูธและโปรดักชัน</span><span class="t-en">Booth & Production</span></span>
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#approach">Approach</a></li>
-        <li><a href="#showcase">Showcase</a></li>
-        <li><a href="#about">Studio</a></li>
-        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#services"><span class="t-th">บริการ</span><span class="t-en">Services</span></a></li>
+        <li><a href="#approach"><span class="t-th">กระบวนการ</span><span class="t-en">Approach</span></a></li>
+        <li><a href="#showcase"><span class="t-th">ผลงาน</span><span class="t-en">Showcase</span></a></li>
+        <li><a href="#about"><span class="t-th">สตูดิโอ</span><span class="t-en">Studio</span></a></li>
+        <li><a href="#pricing"><span class="t-th">ราคา</span><span class="t-en">Pricing</span></a></li>
       </ul>
-      <a href="#cta" class="nav-cta">Request a Quote<i data-lucide="arrow-up-right"></i></a>
+      <div class="nav-right">
+        <div class="lang-toggle" role="group" aria-label="Language toggle">
+          <button type="button" data-lang="th" aria-label="ภาษาไทย">TH</button>
+          <button type="button" data-lang="en" aria-label="English">EN</button>
+        </div>
+        <a href="#cta" class="nav-cta"><span class="t-th">ขอใบเสนอราคา</span><span class="t-en">Request a Quote</span><i data-lucide="arrow-up-right"></i></a>
+      </div>
     </div>
   </nav>
 
@@ -1366,31 +1450,31 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <div class="hero-label">Exhibitions · Concerts · Festivals</div>
+        <div class="hero-label"><span class="t-th">นิทรรศการ · คอนเสิร์ต · เทศกาล</span><span class="t-en">Exhibitions · Concerts · Festivals</span></div>
         <h1 class="serif">
-          Booths built for <span class="accent">unforgettable</span> brand moments.
+          <span class="t-th">บูธที่สร้างขึ้นเพื่อโมเมนต์แบรนด์ที่ <span class="accent">ไม่อาจลืมเลือน</span></span>
+          <span class="t-en">Booths built for <span class="accent">unforgettable</span> brand moments.</span>
         </h1>
         <p class="hero-lead">
-          EventSpace Pro designs, fabricates, and operates exhibition, food, and activity booths
-          for the world's most ambitious events. From the first sketch to the final teardown,
-          our production teams handle every detail so your brand shines.
+          <span class="t-th">EventSpace Pro ออกแบบ ผลิต และดำเนินการบูธนิทรรศการ บูธอาหาร และบูธกิจกรรม ให้กับอีเวนต์ที่ทะเยอทะยานที่สุดในโลก ตั้งแต่ภาพร่างแรกจนถึงการรื้อถอนครั้งสุดท้าย ทีมโปรดักชันของเราดูแลทุกรายละเอียดเพื่อให้แบรนด์ของคุณโดดเด่น</span>
+          <span class="t-en">EventSpace Pro designs, fabricates, and operates exhibition, food, and activity booths for the world's most ambitious events. From the first sketch to the final teardown, our production teams handle every detail so your brand shines.</span>
         </p>
         <div class="hero-actions">
-          <a href="#cta" class="btn-primary">Plan Your Event<i data-lucide="arrow-right"></i></a>
-          <a href="#showcase" class="btn-ghost">View Our Work<i data-lucide="arrow-up-right"></i></a>
+          <a href="#cta" class="btn-primary"><span class="t-th">วางแผนอีเวนต์ของคุณ</span><span class="t-en">Plan Your Event</span><i data-lucide="arrow-right"></i></a>
+          <a href="#showcase" class="btn-ghost"><span class="t-th">ดูผลงานของเรา</span><span class="t-en">View Our Work</span><i data-lucide="arrow-up-right"></i></a>
         </div>
         <div class="hero-meta">
           <div class="hero-meta-item">
             <div class="num">15<span>+</span></div>
-            <div class="lbl">Years of Craft</div>
+            <div class="lbl"><span class="t-th">ปีแห่งงานฝีมือ</span><span class="t-en">Years of Craft</span></div>
           </div>
           <div class="hero-meta-item">
             <div class="num">1.2<span>k</span></div>
-            <div class="lbl">Events Produced</div>
+            <div class="lbl"><span class="t-th">อีเวนต์ที่ผลิต</span><span class="t-en">Events Produced</span></div>
           </div>
           <div class="hero-meta-item">
             <div class="num">98<span>%</span></div>
-            <div class="lbl">Repeat Clients</div>
+            <div class="lbl"><span class="t-th">ลูกค้ากลับมาใช้บริการ</span><span class="t-en">Repeat Clients</span></div>
           </div>
         </div>
       </div>
@@ -1406,14 +1490,17 @@
             <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
           </div>
           <div class="rating">4.9 / 5.0</div>
-          <div class="source">Verified Clients</div>
+          <div class="source"><span class="t-th">ลูกค้ายืนยันแล้ว</span><span class="t-en">Verified Clients</span></div>
         </div>
         <div class="hero-circle">
           <svg viewBox="0 0 100 100">
             <defs>
               <path id="circlePath" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
             </defs>
-            <text>
+            <text class="t-th">
+              <textPath href="#circlePath">จองบูธของคุณ · EVENTSPACE PRO · </textPath>
+            </text>
+            <text class="t-en">
               <textPath href="#circlePath">BOOK YOUR BOOTH · EVENTSPACE PRO · </textPath>
             </text>
           </svg>
@@ -1425,7 +1512,7 @@
   <!-- TRUST -->
   <section class="trust">
     <div class="container trust-inner">
-      <div class="trust-label">Trusted partner for</div>
+      <div class="trust-label"><span class="t-th">พันธมิตรที่ไว้วางใจของ</span><span class="t-en">Trusted partner for</span></div>
       <div class="trust-logos">
         <div class="trust-logo"><i data-lucide="diamond"></i>Verve & Co.</div>
         <div class="trust-logo">Northwind</div>
@@ -1442,12 +1529,15 @@
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <div class="eyebrow">What we build</div>
-          <h2 class="section-title">Three booth lines, <em>one obsessive</em> production standard.</h2>
+          <div class="eyebrow"><span class="t-th">สิ่งที่เราสร้าง</span><span class="t-en">What we build</span></div>
+          <h2 class="section-title">
+            <span class="t-th">บูธสามไลน์ ภายใต้ <em>มาตรฐานโปรดักชัน</em> ที่ใส่ใจทุกรายละเอียด</span>
+            <span class="t-en">Three booth lines, <em>one obsessive</em> production standard.</span>
+          </h2>
         </div>
         <p class="section-sub">
-          Every EventSpace Pro booth is engineered for the demands of live audiences and brand teams alike.
-          Choose a category to see what we can build for your next exhibition, concert, or festival.
+          <span class="t-th">ทุกบูธของ EventSpace Pro ถูกออกแบบมาเพื่อตอบโจทย์ทั้งผู้ชมและทีมแบรนด์ เลือกหมวดหมู่เพื่อดูสิ่งที่เราสามารถสร้างให้กับนิทรรศการ คอนเสิร์ต หรือเทศกาลครั้งต่อไปของคุณ</span>
+          <span class="t-en">Every EventSpace Pro booth is engineered for the demands of live audiences and brand teams alike. Choose a category to see what we can build for your next exhibition, concert, or festival.</span>
         </p>
       </div>
 
@@ -1456,19 +1546,19 @@
           <div class="service-image">
             <img src="https://images.unsplash.com/photo-1761195689615-9469b65dac01?w=700&h=520&fit=crop" alt="Exhibition booth" />
             <div class="service-num">01</div>
-            <div class="service-tag">Exhibitions</div>
+            <div class="service-tag"><span class="t-th">นิทรรศการ</span><span class="t-en">Exhibitions</span></div>
           </div>
           <div class="service-body">
             <div class="service-icon"><i data-lucide="layout-template"></i></div>
-            <h3>Exhibition Booths</h3>
-            <p>Modular and custom-built showcases that elevate your brand on the trade show floor with engineered precision.</p>
+            <h3><span class="t-th">บูธนิทรรศการ</span><span class="t-en">Exhibition Booths</span></h3>
+            <p><span class="t-th">โชว์เคสแบบโมดูลาร์และสั่งทำพิเศษที่ยกระดับแบรนด์ของคุณบนพื้นที่งานเทรดโชว์ด้วยความแม่นยำเชิงวิศวกรรม</span><span class="t-en">Modular and custom-built showcases that elevate your brand on the trade show floor with engineered precision.</span></p>
             <ul class="service-features">
-              <li><i data-lucide="check"></i>Modular & custom-built systems</li>
-              <li><i data-lucide="check"></i>Integrated lighting & AV</li>
-              <li><i data-lucide="check"></i>On-site install & strike crews</li>
-              <li><i data-lucide="check"></i>Storage between events</li>
+              <li><i data-lucide="check"></i><span class="t-th">ระบบโมดูลาร์และสั่งทำพิเศษ</span><span class="t-en">Modular & custom-built systems</span></li>
+              <li><i data-lucide="check"></i><span class="t-th">ระบบไฟและ AV ครบครัน</span><span class="t-en">Integrated lighting & AV</span></li>
+              <li><i data-lucide="check"></i><span class="t-th">ทีมติดตั้งและรื้อถอนหน้างาน</span><span class="t-en">On-site install & strike crews</span></li>
+              <li><i data-lucide="check"></i><span class="t-th">จัดเก็บระหว่างงานให้</span><span class="t-en">Storage between events</span></li>
             </ul>
-            <a href="#cta" class="service-link">Configure a Booth<i data-lucide="arrow-right"></i></a>
+            <a href="#cta" class="service-link"><span class="t-th">กำหนดสเปกบูธ</span><span class="t-en">Configure a Booth</span><i data-lucide="arrow-right"></i></a>
           </div>
         </div>
 
@@ -1476,19 +1566,19 @@
           <div class="service-image">
             <img src="https://images.unsplash.com/photo-1763586625100-8c5074ad5051?w=700&h=520&fit=crop" alt="Food booth" />
             <div class="service-num">02</div>
-            <div class="service-tag">Food Service</div>
+            <div class="service-tag"><span class="t-th">บริการอาหาร</span><span class="t-en">Food Service</span></div>
           </div>
           <div class="service-body">
             <div class="service-icon"><i data-lucide="utensils"></i></div>
-            <h3>Food Booths</h3>
-            <p>Health-code-ready food and beverage booths designed for high-volume festivals, markets, and large concerts.</p>
+            <h3><span class="t-th">บูธอาหาร</span><span class="t-en">Food Booths</span></h3>
+            <p><span class="t-th">บูธอาหารและเครื่องดื่มที่พร้อมตามมาตรฐานสุขอนามัย ออกแบบมาเพื่อรองรับเทศกาล ตลาด และคอนเสิร์ตขนาดใหญ่</span><span class="t-en">Health-code-ready food and beverage booths designed for high-volume festivals, markets, and large concerts.</span></p>
             <ul class="service-features">
-              <li><i data-lucide="check"></i>NSF-rated equipment</li>
-              <li><i data-lucide="check"></i>Power, water, and waste solved</li>
-              <li><i data-lucide="check"></i>Branded façades & signage</li>
-              <li><i data-lucide="check"></i>Permit support included</li>
+              <li><i data-lucide="check"></i><span class="t-th">อุปกรณ์ได้มาตรฐาน NSF</span><span class="t-en">NSF-rated equipment</span></li>
+              <li><i data-lucide="check"></i><span class="t-th">ระบบไฟฟ้า น้ำ และจัดการของเสียครบ</span><span class="t-en">Power, water, and waste solved</span></li>
+              <li><i data-lucide="check"></i><span class="t-th">ฟาซาดและป้ายแบรนด์</span><span class="t-en">Branded façades & signage</span></li>
+              <li><i data-lucide="check"></i><span class="t-th">ดูแลใบอนุญาตให้</span><span class="t-en">Permit support included</span></li>
             </ul>
-            <a href="#cta" class="service-link">Configure a Booth<i data-lucide="arrow-right"></i></a>
+            <a href="#cta" class="service-link"><span class="t-th">กำหนดสเปกบูธ</span><span class="t-en">Configure a Booth</span><i data-lucide="arrow-right"></i></a>
           </div>
         </div>
 
@@ -1496,19 +1586,19 @@
           <div class="service-image">
             <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=700&h=520&fit=crop" alt="Activity booth" />
             <div class="service-num">03</div>
-            <div class="service-tag">Activations</div>
+            <div class="service-tag"><span class="t-th">กิจกรรมแบรนด์</span><span class="t-en">Activations</span></div>
           </div>
           <div class="service-body">
             <div class="service-icon"><i data-lucide="gamepad-2"></i></div>
-            <h3>Activity Booths</h3>
-            <p>Interactive experiences, photo moments, and brand activations that turn passive crowds into engaged audiences.</p>
+            <h3><span class="t-th">บูธกิจกรรม</span><span class="t-en">Activity Booths</span></h3>
+            <p><span class="t-th">ประสบการณ์อินเทอร์แอ็กทีฟ จุดถ่ายภาพ และกิจกรรมแบรนด์ที่เปลี่ยนผู้ชมเฉื่อยชาให้กลายเป็นผู้มีส่วนร่วม</span><span class="t-en">Interactive experiences, photo moments, and brand activations that turn passive crowds into engaged audiences.</span></p>
             <ul class="service-features">
-              <li><i data-lucide="check"></i>Interactive tech & touchscreens</li>
-              <li><i data-lucide="check"></i>Photo & video moments</li>
-              <li><i data-lucide="check"></i>Trained brand ambassadors</li>
-              <li><i data-lucide="check"></i>Lead capture & analytics</li>
+              <li><i data-lucide="check"></i><span class="t-th">เทคโนโลยีอินเทอร์แอ็กทีฟและจอสัมผัส</span><span class="t-en">Interactive tech & touchscreens</span></li>
+              <li><i data-lucide="check"></i><span class="t-th">จุดถ่ายภาพและวิดีโอ</span><span class="t-en">Photo & video moments</span></li>
+              <li><i data-lucide="check"></i><span class="t-th">แบรนด์แอมบาสเดอร์ที่ผ่านการฝึกอบรม</span><span class="t-en">Trained brand ambassadors</span></li>
+              <li><i data-lucide="check"></i><span class="t-th">ระบบเก็บลีดและวิเคราะห์ผล</span><span class="t-en">Lead capture & analytics</span></li>
             </ul>
-            <a href="#cta" class="service-link">Configure a Booth<i data-lucide="arrow-right"></i></a>
+            <a href="#cta" class="service-link"><span class="t-th">กำหนดสเปกบูธ</span><span class="t-en">Configure a Booth</span><i data-lucide="arrow-right"></i></a>
           </div>
         </div>
       </div>
@@ -1520,22 +1610,25 @@
     <div class="container">
       <div class="approach-grid">
         <div class="reveal">
-          <div class="eyebrow">Our approach</div>
-          <h2 class="section-title">A studio built on <em>process</em>, not improvisation.</h2>
+          <div class="eyebrow"><span class="t-th">กระบวนการของเรา</span><span class="t-en">Our approach</span></div>
+          <h2 class="section-title">
+            <span class="t-th">สตูดิโอที่ขับเคลื่อนด้วย <em>กระบวนการ</em> ไม่ใช่การด้นสด</span>
+            <span class="t-en">A studio built on <em>process</em>, not improvisation.</span>
+          </h2>
           <p class="approach-lead">
-            Every event we touch is run by a dedicated producer who manages four phases from your first
-            email to the final invoice. No handoffs, no surprises, no last-minute crisis calls.
+            <span class="t-th">ทุกอีเวนต์ที่เราดูแลจะมีโปรดิวเซอร์เฉพาะกิจที่บริหารงานทั้งสี่เฟส ตั้งแต่อีเมลฉบับแรกของคุณจนถึงใบแจ้งหนี้ฉบับสุดท้าย ไม่มีการส่งต่อ ไม่มีเซอร์ไพรส์ ไม่มีโทรหากันตอนเกิดวิกฤต</span>
+            <span class="t-en">Every event we touch is run by a dedicated producer who manages four phases from your first email to the final invoice. No handoffs, no surprises, no last-minute crisis calls.</span>
           </p>
           <div class="approach-card">
             <div class="approach-card-q">
-              "Their producer kept us calm through three consecutive city activations. Most professional
-              booth crew we've ever hired."
+              <span class="t-th">“โปรดิวเซอร์ของพวกเขาช่วยให้เราใจเย็นได้ตลอดสามอีเวนต์ติดต่อกันในต่างเมือง เป็นทีมบูธที่เป็นมืออาชีพที่สุดที่เราเคยจ้างมา”</span>
+              <span class="t-en">"Their producer kept us calm through three consecutive city activations. Most professional booth crew we've ever hired."</span>
             </div>
             <div class="approach-card-cite">
               <img src="https://i.pravatar.cc/100?img=47" alt="Eliza Ward" />
               <div>
                 <div class="who">Eliza Ward</div>
-                <div class="where">VP Marketing, Verve & Co.</div>
+                <div class="where"><span class="t-th">รองประธานฝ่ายการตลาด, Verve & Co.</span><span class="t-en">VP Marketing, Verve & Co.</span></div>
               </div>
             </div>
           </div>
@@ -1545,32 +1638,32 @@
           <div class="step">
             <div class="step-num">01</div>
             <div>
-              <h4>Discovery & Brief</h4>
-              <p>We start with a 60-minute deep dive into your brand goals, audience, venue constraints, and timeline. You leave with a written brief.</p>
+              <h4><span class="t-th">ค้นหาโจทย์และสรุปบรีฟ</span><span class="t-en">Discovery & Brief</span></h4>
+              <p><span class="t-th">เริ่มต้นด้วยการพูดคุยเชิงลึก 60 นาทีเกี่ยวกับเป้าหมายแบรนด์ ผู้ชม ข้อจำกัดของสถานที่ และไทม์ไลน์ คุณจะได้รับเอกสารสรุปโจทย์เป็นลายลักษณ์อักษร</span><span class="t-en">We start with a 60-minute deep dive into your brand goals, audience, venue constraints, and timeline. You leave with a written brief.</span></p>
             </div>
             <div class="step-arrow"><i data-lucide="arrow-up-right"></i></div>
           </div>
           <div class="step">
             <div class="step-num">02</div>
             <div>
-              <h4>Design & Renders</h4>
-              <p>Our design studio delivers two creative directions in 3D with materials, lighting, and dimensions you can show stakeholders.</p>
+              <h4><span class="t-th">ออกแบบและภาพเรนเดอร์</span><span class="t-en">Design & Renders</span></h4>
+              <p><span class="t-th">สตูดิโอออกแบบของเราส่งมอบสองแนวคิดสร้างสรรค์เป็น 3D พร้อมรายละเอียดวัสดุ แสง และขนาด ที่นำไปนำเสนอผู้มีอำนาจตัดสินใจได้ทันที</span><span class="t-en">Our design studio delivers two creative directions in 3D with materials, lighting, and dimensions you can show stakeholders.</span></p>
             </div>
             <div class="step-arrow"><i data-lucide="arrow-up-right"></i></div>
           </div>
           <div class="step">
             <div class="step-num">03</div>
             <div>
-              <h4>Fabrication & Logistics</h4>
-              <p>In-house carpenters, fabricators, and AV specialists build your booth in our 18,000 sq ft workshop and handle nationwide transit.</p>
+              <h4><span class="t-th">ผลิตและจัดส่ง</span><span class="t-en">Fabrication & Logistics</span></h4>
+              <p><span class="t-th">ทีมช่างไม้ ช่างผลิต และผู้เชี่ยวชาญ AV ภายในของเราสร้างบูธในเวิร์กช็อปขนาด 18,000 ตร.ฟุต และดูแลการขนส่งทั่วประเทศ</span><span class="t-en">In-house carpenters, fabricators, and AV specialists build your booth in our 18,000 sq ft workshop and handle nationwide transit.</span></p>
             </div>
             <div class="step-arrow"><i data-lucide="arrow-up-right"></i></div>
           </div>
           <div class="step">
             <div class="step-num">04</div>
             <div>
-              <h4>On-Site Production</h4>
-              <p>Our install crew arrives 48 hours before doors open. A producer stays on-site every day of your event and manages strike at the close.</p>
+              <h4><span class="t-th">โปรดักชันหน้างาน</span><span class="t-en">On-Site Production</span></h4>
+              <p><span class="t-th">ทีมติดตั้งของเรามาถึงก่อนเปิดงาน 48 ชั่วโมง โปรดิวเซอร์จะอยู่หน้างานทุกวันของอีเวนต์และดูแลการรื้อถอนเมื่อจบงาน</span><span class="t-en">Our install crew arrives 48 hours before doors open. A producer stays on-site every day of your event and manages strike at the close.</span></p>
             </div>
             <div class="step-arrow"><i data-lucide="arrow-up-right"></i></div>
           </div>
@@ -1584,12 +1677,15 @@
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <div class="eyebrow">Recent work</div>
-          <h2 class="section-title">A few of our <em>favorite</em> productions.</h2>
+          <div class="eyebrow"><span class="t-th">ผลงานล่าสุด</span><span class="t-en">Recent work</span></div>
+          <h2 class="section-title">
+            <span class="t-th">ส่วนหนึ่งของโปรดักชัน <em>ที่เราภูมิใจ</em></span>
+            <span class="t-en">A few of our <em>favorite</em> productions.</span>
+          </h2>
         </div>
         <p class="section-sub">
-          From a 2,400 sq ft auto exhibition build to a 14-booth food village at a summer festival,
-          our portfolio reflects the breadth of what our studio can deliver.
+          <span class="t-th">ตั้งแต่นิทรรศการรถยนต์ขนาด 2,400 ตร.ฟุต ไปจนถึงหมู่บูธอาหาร 14 บูธในเทศกาลฤดูร้อน พอร์ตโฟลิโอของเราสะท้อนความหลากหลายของสิ่งที่สตูดิโอของเราสามารถส่งมอบได้</span>
+          <span class="t-en">From a 2,400 sq ft auto exhibition build to a 14-booth food village at a summer festival, our portfolio reflects the breadth of what our studio can deliver.</span>
         </p>
       </div>
 
@@ -1597,36 +1693,36 @@
         <div class="showcase-item sh-1">
           <img src="https://images.unsplash.com/photo-1711390811443-ae5a33144f7d?w=900&h=600&fit=crop" alt="Trade show production" />
           <div class="showcase-caption">
-            <div class="cat">Exhibition · Detroit</div>
-            <h5>Automotive Innovation Pavilion</h5>
+            <div class="cat"><span class="t-th">นิทรรศการ · Detroit</span><span class="t-en">Exhibition · Detroit</span></div>
+            <h5><span class="t-th">พาวิเลียนนวัตกรรมยานยนต์</span><span class="t-en">Automotive Innovation Pavilion</span></h5>
           </div>
         </div>
         <div class="showcase-item sh-2">
           <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=700&h=600&fit=crop" alt="Concert stage" />
           <div class="showcase-caption">
-            <div class="cat">Concert · Austin</div>
-            <h5>Headliner Backstage Lounge</h5>
+            <div class="cat"><span class="t-th">คอนเสิร์ต · Austin</span><span class="t-en">Concert · Austin</span></div>
+            <h5><span class="t-th">เลานจ์หลังเวทีศิลปินนำ</span><span class="t-en">Headliner Backstage Lounge</span></h5>
           </div>
         </div>
         <div class="showcase-item sh-3">
           <img src="https://images.unsplash.com/photo-1558008258-3256797b43f3?w=500&h=620&fit=crop" alt="Conference activation" />
           <div class="showcase-caption">
-            <div class="cat">Conference · Boston</div>
-            <h5>Keynote Sponsor Activation</h5>
+            <div class="cat"><span class="t-th">คอนเฟอเรนซ์ · Boston</span><span class="t-en">Conference · Boston</span></div>
+            <h5><span class="t-th">กิจกรรมสปอนเซอร์คีย์โน้ต</span><span class="t-en">Keynote Sponsor Activation</span></h5>
           </div>
         </div>
         <div class="showcase-item sh-4">
           <img src="https://images.unsplash.com/photo-1778402566957-c21d77a67d0d?w=500&h=620&fit=crop" alt="Festival food village" />
           <div class="showcase-caption">
-            <div class="cat">Festival · Brooklyn</div>
-            <h5>Summer Food & Maker Village</h5>
+            <div class="cat"><span class="t-th">เทศกาล · Brooklyn</span><span class="t-en">Festival · Brooklyn</span></div>
+            <h5><span class="t-th">หมู่บ้านอาหารและเมกเกอร์ฤดูร้อน</span><span class="t-en">Summer Food & Maker Village</span></h5>
           </div>
         </div>
         <div class="showcase-item sh-5">
           <img src="https://images.unsplash.com/photo-1576514129883-2f1d47a65da6?w=500&h=620&fit=crop" alt="Music festival stage" />
           <div class="showcase-caption">
-            <div class="cat">Music Festival · Denver</div>
-            <h5>Brand Activation Stage</h5>
+            <div class="cat"><span class="t-th">เทศกาลดนตรี · Denver</span><span class="t-en">Music Festival · Denver</span></div>
+            <h5><span class="t-th">เวทีกิจกรรมแบรนด์</span><span class="t-en">Brand Activation Stage</span></h5>
           </div>
         </div>
       </div>
@@ -1641,47 +1737,48 @@
           <img src="https://images.unsplash.com/photo-1560439514-4e9645039924?w=700&h=850&fit=crop" alt="EventSpace Pro studio" />
           <div class="about-stat about-stat-1">
             <div class="big">18k</div>
-            <div class="lbl">Sq Ft Workshop</div>
+            <div class="lbl"><span class="t-th">ตร.ฟุต เวิร์กช็อป</span><span class="t-en">Sq Ft Workshop</span></div>
           </div>
           <div class="about-stat about-stat-2">
             <div class="big">42</div>
-            <div class="lbl">Studio Team</div>
+            <div class="lbl"><span class="t-th">ทีมสตูดิโอ</span><span class="t-en">Studio Team</span></div>
           </div>
         </div>
 
         <div class="reveal">
-          <div class="eyebrow">The studio</div>
-          <h2 class="section-title">An event production studio with the <em>craft</em> of a workshop.</h2>
+          <div class="eyebrow"><span class="t-th">สตูดิโอของเรา</span><span class="t-en">The studio</span></div>
+          <h2 class="section-title">
+            <span class="t-th">สตูดิโอโปรดักชันอีเวนต์ที่มี <em>งานฝีมือ</em> ระดับเวิร์กช็อปจริง</span>
+            <span class="t-en">An event production studio with the <em>craft</em> of a workshop.</span>
+          </h2>
           <p>
-            EventSpace Pro was founded in 2009 by a stagehand and an industrial designer who were tired
-            of brittle booth rentals that fell apart by day two. Fifteen years and 1,200+ events later,
-            we still build like we're putting our name on every joint.
+            <span class="t-th">EventSpace Pro ก่อตั้งในปี 2009 โดยช่างเวทีและนักออกแบบอุตสาหกรรมที่เบื่อกับบูธให้เช่าคุณภาพต่ำที่พังตั้งแต่วันที่สอง สิบห้าปีและกว่า 1,200 อีเวนต์ผ่านไป เรายังคงสร้างผลงานราวกับใส่ชื่อของเราลงบนทุกข้อต่อ</span>
+            <span class="t-en">EventSpace Pro was founded in 2009 by a stagehand and an industrial designer who were tired of brittle booth rentals that fell apart by day two. Fifteen years and 1,200+ events later, we still build like we're putting our name on every joint.</span>
           </p>
           <p>
-            Our 18,000 sq ft Brooklyn workshop houses carpenters, welders, electricians, designers, and
-            a production team that travels nationwide. We design and build everything in-house — no
-            outsourcing, no compromises.
+            <span class="t-th">เวิร์กช็อปขนาด 18,000 ตร.ฟุต ในบรูคลินของเราเป็นที่ทำงานของช่างไม้ ช่างเชื่อม ช่างไฟ นักออกแบบ และทีมโปรดักชันที่เดินทางทั่วประเทศ เราออกแบบและสร้างทุกอย่างภายในองค์กร ไม่มีการเอาต์ซอร์ส ไม่มีการประนีประนอม</span>
+            <span class="t-en">Our 18,000 sq ft Brooklyn workshop houses carpenters, welders, electricians, designers, and a production team that travels nationwide. We design and build everything in-house — no outsourcing, no compromises.</span>
           </p>
           <div class="about-pillars">
             <div class="pillar">
               <i data-lucide="hammer"></i>
-              <h6>In-house fabrication</h6>
-              <p>Carpenters, welders, and electricians under one roof.</p>
+              <h6><span class="t-th">ผลิตในบ้านเอง</span><span class="t-en">In-house fabrication</span></h6>
+              <p><span class="t-th">ช่างไม้ ช่างเชื่อม และช่างไฟทำงานภายใต้หลังคาเดียวกัน</span><span class="t-en">Carpenters, welders, and electricians under one roof.</span></p>
             </div>
             <div class="pillar">
               <i data-lucide="shield-check"></i>
-              <h6>Fully insured</h6>
-              <p>$5M general liability, workers' comp, equipment cover.</p>
+              <h6><span class="t-th">ประกันภัยครบครัน</span><span class="t-en">Fully insured</span></h6>
+              <p><span class="t-th">ประกันความรับผิดทั่วไป 5 ล้านดอลลาร์ ประกันแรงงาน และประกันอุปกรณ์</span><span class="t-en">$5M general liability, workers' comp, equipment cover.</span></p>
             </div>
             <div class="pillar">
               <i data-lucide="truck"></i>
-              <h6>Nationwide reach</h6>
-              <p>Dedicated transport in our own fleet across 12 cities.</p>
+              <h6><span class="t-th">ครอบคลุมทั่วประเทศ</span><span class="t-en">Nationwide reach</span></h6>
+              <p><span class="t-th">ขนส่งเฉพาะด้วยกองรถของเราเองครอบคลุม 12 เมือง</span><span class="t-en">Dedicated transport in our own fleet across 12 cities.</span></p>
             </div>
             <div class="pillar">
               <i data-lucide="leaf"></i>
-              <h6>Reusable systems</h6>
-              <p>Modular components reduce waste and budget by 30%.</p>
+              <h6><span class="t-th">ระบบใช้ซ้ำได้</span><span class="t-en">Reusable systems</span></h6>
+              <p><span class="t-th">ส่วนประกอบโมดูลาร์ช่วยลดของเสียและงบประมาณลงได้ 30%</span><span class="t-en">Modular components reduce waste and budget by 30%.</span></p>
             </div>
           </div>
         </div>
@@ -1693,20 +1790,26 @@
   <section class="voices">
     <div class="container">
       <div class="voices-head reveal">
-        <div class="eyebrow">Client voices</div>
-        <h2 class="section-title">The people we build <em>with</em>.</h2>
+        <div class="eyebrow"><span class="t-th">เสียงจากลูกค้า</span><span class="t-en">Client voices</span></div>
+        <h2 class="section-title">
+          <span class="t-th">ผู้คนที่เราสร้างงาน <em>ไปด้วยกัน</em></span>
+          <span class="t-en">The people we build <em>with</em>.</span>
+        </h2>
       </div>
       <div class="voices-grid">
         <div class="voice reveal">
           <div class="voice-stars">
             <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
           </div>
-          <p>"They delivered a 60-foot exhibition booth on a six-week timeline and still had time to refine the lighting on-site. The polish was unmatched."</p>
+          <p>
+            <span class="t-th">“พวกเขาส่งมอบบูธนิทรรศการความยาว 60 ฟุตในไทม์ไลน์เพียง 6 สัปดาห์ และยังมีเวลาปรับไฟหน้างานอีกด้วย ความประณีตเหนือใคร”</span>
+            <span class="t-en">"They delivered a 60-foot exhibition booth on a six-week timeline and still had time to refine the lighting on-site. The polish was unmatched."</span>
+          </p>
           <div class="voice-author">
             <img src="https://i.pravatar.cc/100?img=12" alt="" />
             <div>
               <div class="nm">Marcus Holden</div>
-              <div class="rl">Brand Director, Northwind</div>
+              <div class="rl"><span class="t-th">ผู้อำนวยการแบรนด์, Northwind</span><span class="t-en">Brand Director, Northwind</span></div>
             </div>
           </div>
         </div>
@@ -1714,12 +1817,15 @@
           <div class="voice-stars">
             <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
           </div>
-          <p>"Our food booth handled 4,000 visitors in two days without a single hiccup. The hand-off from build to operations was completely seamless."</p>
+          <p>
+            <span class="t-th">“บูธอาหารของเรารองรับผู้เข้าชม 4,000 คนใน 2 วันโดยไม่มีปัญหาเลยแม้แต่ครั้งเดียว การส่งต่องานจากการสร้างไปสู่การดำเนินงานราบรื่นมาก”</span>
+            <span class="t-en">"Our food booth handled 4,000 visitors in two days without a single hiccup. The hand-off from build to operations was completely seamless."</span>
+          </p>
           <div class="voice-author">
             <img src="https://i.pravatar.cc/100?img=32" alt="" />
             <div>
               <div class="nm">Priya Shah</div>
-              <div class="rl">Founder, Saffron & Salt Catering</div>
+              <div class="rl"><span class="t-th">ผู้ก่อตั้ง, Saffron & Salt Catering</span><span class="t-en">Founder, Saffron & Salt Catering</span></div>
             </div>
           </div>
         </div>
@@ -1727,12 +1833,15 @@
           <div class="voice-stars">
             <i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i>
           </div>
-          <p>"The activity booth they designed for our festival drove 11,000 unique interactions. The reusable system meant we redeployed it three more times that year."</p>
+          <p>
+            <span class="t-th">“บูธกิจกรรมที่พวกเขาออกแบบให้เทศกาลของเราสร้างปฏิสัมพันธ์ที่ไม่ซ้ำกัน 11,000 ครั้ง ระบบที่ใช้ซ้ำได้ทำให้เรานำไปติดตั้งต่ออีกสามครั้งในปีเดียวกัน”</span>
+            <span class="t-en">"The activity booth they designed for our festival drove 11,000 unique interactions. The reusable system meant we redeployed it three more times that year."</span>
+          </p>
           <div class="voice-author">
             <img src="https://i.pravatar.cc/100?img=21" alt="" />
             <div>
               <div class="nm">Daniel Okafor</div>
-              <div class="rl">Head of Experience, LUMEN</div>
+              <div class="rl"><span class="t-th">หัวหน้าฝ่ายประสบการณ์, LUMEN</span><span class="t-en">Head of Experience, LUMEN</span></div>
             </div>
           </div>
         </div>
@@ -1745,70 +1854,73 @@
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <div class="eyebrow">Investment</div>
-          <h2 class="section-title">Transparent <em>pricing</em>, scoped to your event.</h2>
+          <div class="eyebrow"><span class="t-th">การลงทุน</span><span class="t-en">Investment</span></div>
+          <h2 class="section-title">
+            <span class="t-th"><em>ราคา</em> ที่โปร่งใส ปรับให้เหมาะกับอีเวนต์ของคุณ</span>
+            <span class="t-en">Transparent <em>pricing</em>, scoped to your event.</span>
+          </h2>
         </div>
         <p class="section-sub">
-          Every booth is custom-scoped, but our three production tiers give a clear starting point for
-          budgeting. Final quotes include design, build, transit, install, on-site crew, and strike.
+          <span class="t-th">ทุกบูธมีขอบเขตงานเฉพาะตัว แต่ทีร์โปรดักชันทั้งสามของเราให้จุดเริ่มต้นที่ชัดเจนสำหรับการตั้งงบประมาณ ใบเสนอราคาสุดท้ายรวมการออกแบบ การสร้าง การขนส่ง การติดตั้ง ทีมหน้างาน และการรื้อถอนไว้ครบ</span>
+          <span class="t-en">Every booth is custom-scoped, but our three production tiers give a clear starting point for budgeting. Final quotes include design, build, transit, install, on-site crew, and strike.</span>
         </p>
       </div>
 
       <div class="pricing-grid">
         <div class="price-card reveal">
-          <h4>Essential</h4>
-          <div class="price-tier">Modular Series</div>
+          <h4><span class="t-th">เริ่มต้น</span><span class="t-en">Essential</span></h4>
+          <div class="price-tier"><span class="t-th">ซีรีส์โมดูลาร์</span><span class="t-en">Modular Series</span></div>
           <div class="price-amount">
             <span class="cur">$</span>
             <span class="num">4,800</span>
-            <span class="per">/ event</span>
+            <span class="per"><span class="t-th">/ งาน</span><span class="t-en">/ event</span></span>
           </div>
-          <p class="price-desc">Pre-engineered modular booth, delivered and installed for single-event activations up to 200 sq ft.</p>
+          <p class="price-desc"><span class="t-th">บูธโมดูลาร์สำเร็จรูป จัดส่งและติดตั้งให้สำหรับอีเวนต์เดียว ขนาดไม่เกิน 200 ตร.ฟุต</span><span class="t-en">Pre-engineered modular booth, delivered and installed for single-event activations up to 200 sq ft.</span></p>
           <ul class="price-list">
-            <li><i data-lucide="check"></i>100–200 sq ft modular footprint</li>
-            <li><i data-lucide="check"></i>Branded graphic panels</li>
-            <li><i data-lucide="check"></i>Standard lighting package</li>
-            <li><i data-lucide="check"></i>Delivery within 200 miles</li>
-            <li><i data-lucide="check"></i>Install & strike included</li>
+            <li><i data-lucide="check"></i><span class="t-th">พื้นที่โมดูลาร์ 100–200 ตร.ฟุต</span><span class="t-en">100–200 sq ft modular footprint</span></li>
+            <li><i data-lucide="check"></i><span class="t-th">แผงกราฟิกแบรนด์</span><span class="t-en">Branded graphic panels</span></li>
+            <li><i data-lucide="check"></i><span class="t-th">ชุดไฟมาตรฐาน</span><span class="t-en">Standard lighting package</span></li>
+            <li><i data-lucide="check"></i><span class="t-th">จัดส่งภายในรัศมี 200 ไมล์</span><span class="t-en">Delivery within 200 miles</span></li>
+            <li><i data-lucide="check"></i><span class="t-th">รวมติดตั้งและรื้อถอน</span><span class="t-en">Install & strike included</span></li>
           </ul>
-          <a href="#cta" class="price-cta">Start Here</a>
+          <a href="#cta" class="price-cta"><span class="t-th">เริ่มจากนี่</span><span class="t-en">Start Here</span></a>
         </div>
 
         <div class="price-card featured reveal">
-          <div class="price-badge">Most Popular</div>
-          <h4>Signature</h4>
-          <div class="price-tier">Semi-Custom Build</div>
+          <div class="price-badge"><span class="t-th">ยอดนิยม</span><span class="t-en">Most Popular</span></div>
+          <h4><span class="t-th">ซิกเนเจอร์</span><span class="t-en">Signature</span></h4>
+          <div class="price-tier"><span class="t-th">กึ่งสั่งทำพิเศษ</span><span class="t-en">Semi-Custom Build</span></div>
           <div class="price-amount">
             <span class="cur">$</span>
             <span class="num">12,400</span>
-            <span class="per">/ event</span>
+            <span class="per"><span class="t-th">/ งาน</span><span class="t-en">/ event</span></span>
           </div>
-          <p class="price-desc">Custom design layered onto our modular system. Ideal for multi-day exhibitions and festival activations.</p>
+          <p class="price-desc"><span class="t-th">งานออกแบบสั่งทำพิเศษบนระบบโมดูลาร์ของเรา เหมาะสำหรับนิทรรศการหลายวันและกิจกรรมเทศกาล</span><span class="t-en">Custom design layered onto our modular system. Ideal for multi-day exhibitions and festival activations.</span></p>
           <ul class="price-list">
-            <li><i data-lucide="check"></i>200–600 sq ft custom layout</li>
-            <li><i data-lucide="check"></i>Designer-led brand integration</li>
-            <li><i data-lucide="check"></i>AV, lighting & interactive tech</li>
-            <li><i data-lucide="check"></i>Nationwide transit</li>
-            <li><i data-lucide="check"></i>Dedicated on-site producer</li>
+            <li><i data-lucide="check"></i><span class="t-th">เลย์เอาต์สั่งทำ 200–600 ตร.ฟุต</span><span class="t-en">200–600 sq ft custom layout</span></li>
+            <li><i data-lucide="check"></i><span class="t-th">การผสานแบรนด์โดยนักออกแบบ</span><span class="t-en">Designer-led brand integration</span></li>
+            <li><i data-lucide="check"></i><span class="t-th">AV ระบบไฟ และเทคโนโลยีอินเทอร์แอ็กทีฟ</span><span class="t-en">AV, lighting & interactive tech</span></li>
+            <li><i data-lucide="check"></i><span class="t-th">ขนส่งทั่วประเทศ</span><span class="t-en">Nationwide transit</span></li>
+            <li><i data-lucide="check"></i><span class="t-th">โปรดิวเซอร์ประจำหน้างาน</span><span class="t-en">Dedicated on-site producer</span></li>
           </ul>
-          <a href="#cta" class="price-cta">Talk to a Producer</a>
+          <a href="#cta" class="price-cta"><span class="t-th">พูดคุยกับโปรดิวเซอร์</span><span class="t-en">Talk to a Producer</span></a>
         </div>
 
         <div class="price-card reveal">
-          <h4>Bespoke</h4>
-          <div class="price-tier">Full Custom Build</div>
+          <h4><span class="t-th">สั่งทำพิเศษ</span><span class="t-en">Bespoke</span></h4>
+          <div class="price-tier"><span class="t-th">สร้างใหม่ทั้งหมด</span><span class="t-en">Full Custom Build</span></div>
           <div class="price-amount">
-            <span class="num">Quote</span>
+            <span class="num"><span class="t-th">ขอใบเสนอ</span><span class="t-en">Quote</span></span>
           </div>
-          <p class="price-desc">Ground-up custom fabrication for flagship activations, pavilions, and large festival villages.</p>
+          <p class="price-desc"><span class="t-th">การผลิตสั่งทำพิเศษตั้งแต่เริ่มต้น สำหรับกิจกรรมแฟลกชิป พาวิเลียน และหมู่บ้านเทศกาลขนาดใหญ่</span><span class="t-en">Ground-up custom fabrication for flagship activations, pavilions, and large festival villages.</span></p>
           <ul class="price-list">
-            <li><i data-lucide="check"></i>600+ sq ft scope</li>
-            <li><i data-lucide="check"></i>Architectural design process</li>
-            <li><i data-lucide="check"></i>Full AV, F&B, and interactive build</li>
-            <li><i data-lucide="check"></i>Multi-city tour logistics</li>
-            <li><i data-lucide="check"></i>Embedded production team</li>
+            <li><i data-lucide="check"></i><span class="t-th">พื้นที่ 600 ตร.ฟุตขึ้นไป</span><span class="t-en">600+ sq ft scope</span></li>
+            <li><i data-lucide="check"></i><span class="t-th">กระบวนการออกแบบเชิงสถาปัตยกรรม</span><span class="t-en">Architectural design process</span></li>
+            <li><i data-lucide="check"></i><span class="t-th">งานสร้าง AV อาหารและเครื่องดื่ม และอินเทอร์แอ็กทีฟครบ</span><span class="t-en">Full AV, F&B, and interactive build</span></li>
+            <li><i data-lucide="check"></i><span class="t-th">โลจิสติกส์ทัวร์หลายเมือง</span><span class="t-en">Multi-city tour logistics</span></li>
+            <li><i data-lucide="check"></i><span class="t-th">ทีมโปรดักชันประจำเฉพาะ</span><span class="t-en">Embedded production team</span></li>
           </ul>
-          <a href="#cta" class="price-cta">Request Proposal</a>
+          <a href="#cta" class="price-cta"><span class="t-th">ขอข้อเสนอ</span><span class="t-en">Request Proposal</span></a>
         </div>
       </div>
     </div>
@@ -1819,16 +1931,19 @@
     <div class="container">
       <div class="faq-grid">
         <div class="faq-side reveal">
-          <div class="eyebrow">Common questions</div>
-          <h2 class="section-title">Everything you might be <em>wondering</em>.</h2>
+          <div class="eyebrow"><span class="t-th">คำถามที่พบบ่อย</span><span class="t-en">Common questions</span></div>
+          <h2 class="section-title">
+            <span class="t-th">ทุกสิ่งที่คุณอาจ <em>สงสัย</em></span>
+            <span class="t-en">Everything you might be <em>wondering</em>.</span>
+          </h2>
           <p>
-            We've answered the questions we hear most often from brand managers, event directors, and
-            production leads. If yours isn't here, our team is one call away.
+            <span class="t-th">เรารวบรวมคำตอบสำหรับคำถามที่ผู้จัดการแบรนด์ ผู้อำนวยการอีเวนต์ และหัวหน้าโปรดักชันถามบ่อยที่สุด หากไม่มีคำถามของคุณที่นี่ ทีมงานของเราพร้อมรับสายเสมอ</span>
+            <span class="t-en">We've answered the questions we hear most often from brand managers, event directors, and production leads. If yours isn't here, our team is one call away.</span>
           </p>
           <div class="faq-contact">
             <div class="faq-contact-icon"><i data-lucide="phone"></i></div>
             <div>
-              <div class="l">Speak with a producer</div>
+              <div class="l"><span class="t-th">คุยกับโปรดิวเซอร์</span><span class="t-en">Speak with a producer</span></div>
               <div class="v">(347) 555-0142</div>
             </div>
           </div>
@@ -1836,24 +1951,24 @@
 
         <div class="faq-items reveal">
           <div class="faq-item open">
-            <button class="faq-q">How far in advance should we book?<span class="faq-q-icon"><i data-lucide="plus"></i></span></button>
-            <div class="faq-a">For Signature and Bespoke builds we recommend 8–12 weeks lead time so we can complete discovery, design, fabrication, and transit without compromise. Essential modular bookings can be turned around in as little as 14 days.</div>
+            <button class="faq-q"><span><span class="t-th">ควรจองล่วงหน้านานแค่ไหน?</span><span class="t-en">How far in advance should we book?</span></span><span class="faq-q-icon"><i data-lucide="plus"></i></span></button>
+            <div class="faq-a"><span class="t-th">สำหรับงานสร้างซิกเนเจอร์และสั่งทำพิเศษ เราแนะนำให้จองล่วงหน้า 8–12 สัปดาห์ เพื่อให้เราดำเนินการค้นหาโจทย์ ออกแบบ ผลิต และขนส่งโดยไม่ต้องประนีประนอม ส่วนการจองบูธโมดูลาร์ระดับเริ่มต้นสามารถดำเนินการได้ภายใน 14 วัน</span><span class="t-en">For Signature and Bespoke builds we recommend 8–12 weeks lead time so we can complete discovery, design, fabrication, and transit without compromise. Essential modular bookings can be turned around in as little as 14 days.</span></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">Do you handle permits and venue requirements?<span class="faq-q-icon"><i data-lucide="plus"></i></span></button>
-            <div class="faq-a">Yes. Every booth ships with documentation for fire marshal sign-off, electrical inspections, and health permits where required. Our producers coordinate directly with venue ops teams.</div>
+            <button class="faq-q"><span><span class="t-th">คุณดูแลใบอนุญาตและข้อกำหนดของสถานที่ให้ไหม?</span><span class="t-en">Do you handle permits and venue requirements?</span></span><span class="faq-q-icon"><i data-lucide="plus"></i></span></button>
+            <div class="faq-a"><span class="t-th">ครับ ทุกบูธจัดส่งพร้อมเอกสารสำหรับการอนุมัติของเจ้าหน้าที่ดับเพลิง การตรวจระบบไฟฟ้า และใบอนุญาตด้านสุขอนามัยตามที่กำหนด โปรดิวเซอร์ของเราประสานงานโดยตรงกับทีมปฏิบัติการของสถานที่</span><span class="t-en">Yes. Every booth ships with documentation for fire marshal sign-off, electrical inspections, and health permits where required. Our producers coordinate directly with venue ops teams.</span></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">Can we reuse the same booth at multiple events?<span class="faq-q-icon"><i data-lucide="plus"></i></span></button>
-            <div class="faq-a">Absolutely — most of our modular and semi-custom builds are designed for 3–10 deployments. We store your booth between events in our climate-controlled warehouse and refresh graphics as your campaign evolves.</div>
+            <button class="faq-q"><span><span class="t-th">เราใช้บูธเดิมในหลายอีเวนต์ได้ไหม?</span><span class="t-en">Can we reuse the same booth at multiple events?</span></span><span class="faq-q-icon"><i data-lucide="plus"></i></span></button>
+            <div class="faq-a"><span class="t-th">ได้แน่นอน งานสร้างโมดูลาร์และกึ่งสั่งทำส่วนใหญ่ของเราออกแบบมาให้ใช้งานได้ 3–10 ครั้ง เราจัดเก็บบูธของคุณระหว่างอีเวนต์ในคลังที่ควบคุมอุณหภูมิ และเปลี่ยนกราฟิกตามที่แคมเปญพัฒนาไป</span><span class="t-en">Absolutely — most of our modular and semi-custom builds are designed for 3–10 deployments. We store your booth between events in our climate-controlled warehouse and refresh graphics as your campaign evolves.</span></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">What cities do you currently serve?<span class="faq-q-icon"><i data-lucide="plus"></i></span></button>
-            <div class="faq-a">We operate full-service from 12 metro areas including New York, LA, Chicago, Austin, Atlanta, Denver, Miami, Seattle, Boston, Detroit, Las Vegas, and DC. Outside these cities we partner with vetted regional crews.</div>
+            <button class="faq-q"><span><span class="t-th">ปัจจุบันให้บริการในเมืองใดบ้าง?</span><span class="t-en">What cities do you currently serve?</span></span><span class="faq-q-icon"><i data-lucide="plus"></i></span></button>
+            <div class="faq-a"><span class="t-th">เราดำเนินการแบบครบวงจรจาก 12 เมืองใหญ่ ได้แก่ New York, LA, Chicago, Austin, Atlanta, Denver, Miami, Seattle, Boston, Detroit, Las Vegas และ DC ส่วนนอกเหนือจากนี้เราร่วมงานกับทีมระดับภูมิภาคที่ผ่านการตรวจสอบแล้ว</span><span class="t-en">We operate full-service from 12 metro areas including New York, LA, Chicago, Austin, Atlanta, Denver, Miami, Seattle, Boston, Detroit, Las Vegas, and DC. Outside these cities we partner with vetted regional crews.</span></div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">Is on-site staffing included?<span class="faq-q-icon"><i data-lucide="plus"></i></span></button>
-            <div class="faq-a">Install and strike crews are always included. Brand ambassadors, F&B staff, and tech operators can be added a la carte through our talent partners — your producer will scope this in your quote.</div>
+            <button class="faq-q"><span><span class="t-th">รวมเจ้าหน้าที่หน้างานหรือไม่?</span><span class="t-en">Is on-site staffing included?</span></span><span class="faq-q-icon"><i data-lucide="plus"></i></span></button>
+            <div class="faq-a"><span class="t-th">ทีมติดตั้งและรื้อถอนรวมอยู่เสมอ ส่วนแบรนด์แอมบาสเดอร์ เจ้าหน้าที่อาหารและเครื่องดื่ม และผู้ดูแลเทคนิคสามารถเพิ่มได้แยกผ่านพาร์ทเนอร์ด้านบุคลากรของเรา โปรดิวเซอร์จะกำหนดสเปกในใบเสนอราคาของคุณ</span><span class="t-en">Install and strike crews are always included. Brand ambassadors, F&B staff, and tech operators can be added a la carte through our talent partners — your producer will scope this in your quote.</span></div>
           </div>
         </div>
       </div>
@@ -1865,27 +1980,33 @@
     <div class="container">
       <div class="cta-card reveal">
         <div>
-          <div class="eyebrow" style="color: var(--coral);">Let's build together</div>
-          <h2>Ready to brief us on your <em>next event?</em></h2>
-          <p>Tell us about your event, your brand, and what you want your audience to feel. A producer will respond within one business day with next steps.</p>
+          <div class="eyebrow" style="color: var(--coral);"><span class="t-th">มาสร้างไปด้วยกัน</span><span class="t-en">Let's build together</span></div>
+          <h2>
+            <span class="t-th">พร้อมเล่าให้เราฟังเกี่ยวกับ <em>อีเวนต์ครั้งต่อไป</em> ของคุณแล้วหรือยัง?</span>
+            <span class="t-en">Ready to brief us on your <em>next event?</em></span>
+          </h2>
+          <p>
+            <span class="t-th">เล่าให้เราฟังเกี่ยวกับอีเวนต์ของคุณ แบรนด์ของคุณ และสิ่งที่คุณต้องการให้ผู้ชมรู้สึก โปรดิวเซอร์จะตอบกลับภายในหนึ่งวันทำการพร้อมขั้นตอนถัดไป</span>
+            <span class="t-en">Tell us about your event, your brand, and what you want your audience to feel. A producer will respond within one business day with next steps.</span>
+          </p>
           <div class="cta-actions">
             <a href="tel:+13475550142" class="btn-light"><i data-lucide="phone"></i>(347) 555-0142</a>
             <a href="mailto:studio@eventspace.pro" class="btn-outline-light"><i data-lucide="mail"></i>studio@eventspace.pro</a>
           </div>
         </div>
-        <form class="cta-form" onsubmit="event.preventDefault(); alert('Thanks — a producer will be in touch within one business day.');">
-          <div class="cta-form-title">Request a quote</div>
-          <input type="text" placeholder="Your name" required />
-          <input type="email" placeholder="Work email" required />
+        <form class="cta-form" id="quoteForm">
+          <div class="cta-form-title"><span class="t-th">ขอใบเสนอราคา</span><span class="t-en">Request a quote</span></div>
+          <input type="text" data-th-placeholder="ชื่อของคุณ" data-en-placeholder="Your name" placeholder="ชื่อของคุณ" required />
+          <input type="email" data-th-placeholder="อีเมลสำหรับงาน" data-en-placeholder="Work email" placeholder="อีเมลสำหรับงาน" required />
           <select required>
-            <option value="">Select event type</option>
-            <option>Exhibition / Trade Show</option>
-            <option>Concert / Festival</option>
-            <option>Food & Beverage Activation</option>
-            <option>Brand Activation</option>
+            <option value="" data-th="เลือกประเภทอีเวนต์" data-en="Select event type">เลือกประเภทอีเวนต์</option>
+            <option data-th="นิทรรศการ / เทรดโชว์" data-en="Exhibition / Trade Show">นิทรรศการ / เทรดโชว์</option>
+            <option data-th="คอนเสิร์ต / เทศกาล" data-en="Concert / Festival">คอนเสิร์ต / เทศกาล</option>
+            <option data-th="กิจกรรมอาหารและเครื่องดื่ม" data-en="Food & Beverage Activation">กิจกรรมอาหารและเครื่องดื่ม</option>
+            <option data-th="กิจกรรมแบรนด์" data-en="Brand Activation">กิจกรรมแบรนด์</option>
           </select>
-          <input type="text" placeholder="Estimated event date" />
-          <button type="submit">Send Brief<i data-lucide="arrow-up-right"></i></button>
+          <input type="text" data-th-placeholder="วันที่อีเวนต์โดยประมาณ" data-en-placeholder="Estimated event date" placeholder="วันที่อีเวนต์โดยประมาณ" />
+          <button type="submit"><span class="t-th">ส่งโจทย์ของคุณ</span><span class="t-en">Send Brief</span><i data-lucide="arrow-up-right"></i></button>
         </form>
       </div>
     </div>
@@ -1900,10 +2021,10 @@
             <div class="logo-mark"><i data-lucide="layout-grid"></i></div>
             <div class="logo-text">
               <span class="name" style="color: var(--cream);">EventSpace Pro</span>
-              <span class="tag">Booth & Production</span>
+              <span class="tag"><span class="t-th">บูธและโปรดักชัน</span><span class="t-en">Booth & Production</span></span>
             </div>
           </a>
-          <p class="foot-about">A Brooklyn-based event production studio designing, fabricating, and operating exhibition, food, and activity booths for events across the country.</p>
+          <p class="foot-about"><span class="t-th">สตูดิโอโปรดักชันอีเวนต์ในบรูคลินที่ออกแบบ ผลิต และดำเนินการบูธนิทรรศการ บูธอาหาร และบูธกิจกรรมให้กับอีเวนต์ทั่วประเทศ</span><span class="t-en">A Brooklyn-based event production studio designing, fabricating, and operating exhibition, food, and activity booths for events across the country.</span></p>
           <div class="foot-socials">
             <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
             <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
@@ -1912,27 +2033,27 @@
           </div>
         </div>
         <div class="foot-col">
-          <h6>Services</h6>
+          <h6><span class="t-th">บริการ</span><span class="t-en">Services</span></h6>
           <ul>
-            <li><a href="#services">Exhibition Booths</a></li>
-            <li><a href="#services">Food Booths</a></li>
-            <li><a href="#services">Activity Booths</a></li>
-            <li><a href="#services">Custom Fabrication</a></li>
-            <li><a href="#services">On-site Production</a></li>
+            <li><a href="#services"><span class="t-th">บูธนิทรรศการ</span><span class="t-en">Exhibition Booths</span></a></li>
+            <li><a href="#services"><span class="t-th">บูธอาหาร</span><span class="t-en">Food Booths</span></a></li>
+            <li><a href="#services"><span class="t-th">บูธกิจกรรม</span><span class="t-en">Activity Booths</span></a></li>
+            <li><a href="#services"><span class="t-th">ผลิตสั่งทำพิเศษ</span><span class="t-en">Custom Fabrication</span></a></li>
+            <li><a href="#services"><span class="t-th">โปรดักชันหน้างาน</span><span class="t-en">On-site Production</span></a></li>
           </ul>
         </div>
         <div class="foot-col">
-          <h6>Studio</h6>
+          <h6><span class="t-th">สตูดิโอ</span><span class="t-en">Studio</span></h6>
           <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#showcase">Portfolio</a></li>
-            <li><a href="#approach">Approach</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Press</a></li>
+            <li><a href="#about"><span class="t-th">เกี่ยวกับเรา</span><span class="t-en">About Us</span></a></li>
+            <li><a href="#showcase"><span class="t-th">พอร์ตโฟลิโอ</span><span class="t-en">Portfolio</span></a></li>
+            <li><a href="#approach"><span class="t-th">กระบวนการ</span><span class="t-en">Approach</span></a></li>
+            <li><a href="#"><span class="t-th">ร่วมงานกับเรา</span><span class="t-en">Careers</span></a></li>
+            <li><a href="#"><span class="t-th">ข่าวสาร</span><span class="t-en">Press</span></a></li>
           </ul>
         </div>
         <div class="foot-col">
-          <h6>Contact</h6>
+          <h6><span class="t-th">ติดต่อ</span><span class="t-en">Contact</span></h6>
           <ul>
             <li class="with-icon"><i data-lucide="map-pin"></i><span>184 Kent Avenue,<br/>Brooklyn, NY 11249</span></li>
             <li class="with-icon"><i data-lucide="phone"></i><a href="tel:+13475550142">(347) 555-0142</a></li>
@@ -1941,17 +2062,72 @@
         </div>
       </div>
       <div class="foot-bottom">
-        <span>© 2026 EventSpace Pro Studio. All rights reserved.</span>
+        <span><span class="t-th">© 2026 EventSpace Pro Studio สงวนลิขสิทธิ์ทั้งหมด</span><span class="t-en">© 2026 EventSpace Pro Studio. All rights reserved.</span></span>
         <div class="links">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
-          <a href="#">Insurance</a>
+          <a href="#"><span class="t-th">ความเป็นส่วนตัว</span><span class="t-en">Privacy</span></a>
+          <a href="#"><span class="t-th">ข้อกำหนด</span><span class="t-en">Terms</span></a>
+          <a href="#"><span class="t-th">ประกันภัย</span><span class="t-en">Insurance</span></a>
         </div>
       </div>
     </div>
   </footer>
 
 <script>
+  // ============ LANGUAGE SWITCHER ============
+  const SUPPORTED_LANGS = ['th', 'en'];
+  const FORM_THANKS = {
+    th: 'ขอบคุณ — โปรดิวเซอร์จะติดต่อกลับภายในหนึ่งวันทำการ',
+    en: 'Thanks — a producer will be in touch within one business day.'
+  };
+
+  function applyLang(lang) {
+    if (!SUPPORTED_LANGS.includes(lang)) lang = 'th';
+    document.documentElement.lang = lang;
+
+    // Toggle button active state
+    document.querySelectorAll('.lang-toggle button').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    // Placeholders on inputs
+    document.querySelectorAll('[data-th-placeholder]').forEach(el => {
+      const ph = lang === 'th' ? el.dataset.thPlaceholder : el.dataset.enPlaceholder;
+      if (ph != null) el.setAttribute('placeholder', ph);
+    });
+
+    // Select option labels
+    document.querySelectorAll('option[data-th]').forEach(opt => {
+      const txt = lang === 'th' ? opt.dataset.th : opt.dataset.en;
+      if (txt != null) opt.textContent = txt;
+    });
+
+    // Document title
+    const titleEl = document.querySelector('title');
+    if (titleEl && titleEl.dataset.thTitle) {
+      document.title = lang === 'th' ? titleEl.dataset.thTitle : titleEl.dataset.enTitle;
+    }
+  }
+
+  const stored = (() => {
+    try { return localStorage.getItem('eventspace-lang'); } catch (e) { return null; }
+  })();
+  applyLang(stored || 'th');
+
+  document.querySelectorAll('.lang-toggle button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+      applyLang(lang);
+      try { localStorage.setItem('eventspace-lang', lang); } catch (e) {}
+    });
+  });
+
+  // Form submit
+  document.getElementById('quoteForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const lang = document.documentElement.lang === 'en' ? 'en' : 'th';
+    alert(FORM_THANKS[lang]);
+  });
+
   // FAQ accordion
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
